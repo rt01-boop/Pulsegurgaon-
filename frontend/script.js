@@ -7,8 +7,7 @@ loadNews()
 
 async function loadNews(){
 
-const res=await fetch("https://YOUR_RENDER_URL/news")
-
+const res=await fetch("https://pulsegurgaon.onrender.com/news")
 const data=await res.json()
 
 const row=document.getElementById("newsrow")
