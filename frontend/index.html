@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PulseGurgaon</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<header>
-<img src="../assets/logo.png" class="logo">
+<header class="topbar">
 
-<nav>
+<div class="logo">
+<img src="../assets/logo.png">
+<span>PulseGurgaon</span>
+</div>
+
+<nav class="menu">
 <a href="#">Home</a>
 <a href="#">Gurgaon</a>
 <a href="#">India</a>
@@ -22,19 +30,27 @@
 
 <input id="search" placeholder="Search news">
 
-<button onclick="toggleLang()">EN/HI</button>
+<button onclick="toggleLang()">EN / HI</button>
 
 </header>
 
-<div class="ticker" id="ticker"></div>
 
-<div class="container">
+<div class="ticker" id="ticker">
+Breaking News Loading...
+</div>
 
-<h2>Latest News</h2>
+
+<main>
+
+<h2 class="sectiontitle">Latest News</h2>
 
 <div id="newsrow" class="row"></div>
 
-</div>
+</main>
+
+<footer>
+PulseGurgaon © 2026
+</footer>
 
 <script src="script.js"></script>
 
