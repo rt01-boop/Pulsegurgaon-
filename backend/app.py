@@ -5,7 +5,7 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-ARTICLES_FILE = "articles.json"
+ARTICLES_FILE = "backend/articles.json"
 ADS_FILE = "ads.json"
 
 def load_articles():
