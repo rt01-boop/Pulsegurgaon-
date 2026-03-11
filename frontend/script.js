@@ -1,29 +1,30 @@
 let lang="en"
 
 function toggleLang(){
-lang=lang==="en"?"hi":"en"
+lang = lang==="en" ? "hi" : "en"
 loadNews()
 }
 
 async function loadNews(){
 
-const res=await fetch("https://pulsegurgaon.onrender.com/news")
-const data=await res.json()
+const res = await fetch("https://pulsegurgaon.onrender.com/news")
 
-const row=document.getElementById("newsrow")
+const data = await res.json()
+
+const row = document.getElementById("newsrow")
 
 row.innerHTML=""
 
-data.forEach(a=>{
+data.forEach(article=>{
 
-const card=document.createElement("div")
+const card = document.createElement("div")
 card.className="card"
 
-let title=lang==="en"?a.title_en:a.title_hi
-let summary=lang==="en"?a.summary_en:a.summary_hi
+const title = lang==="en" ? article.title_en : article.title_hi
+const summary = lang==="en" ? article.summary_en : article.summary_hi
 
-card.innerHTML=`
-<img src="${a.image}">
+card.innerHTML = `
+<img src="${article.image}">
 <h3>${title}</h3>
 <p>${summary}</p>
 `
