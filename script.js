@@ -15,17 +15,16 @@ const card = document.createElement("div")
 card.className = "card"
 
 card.innerHTML = `
-<a href="frontend/article.html?id=${article.id}">
 <img src="${article.image}">
 
 <h3>${article.title_en}</h3>
 <p>${article.summary_en}</p>
-</a>
+<a href="frontend/article.html?id=${article.id}">Read full article</a>
 `container.appendChild(card)
 
 })
 
-}catch(error){
+}catch(e){
 
 container.innerHTML = "News failed to load"
 
