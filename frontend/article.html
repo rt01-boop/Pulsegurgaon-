@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>PulseGurgaon</title>
-
-<style>
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PulseGurgaon</title><style>
 
 body{
 font-family:Arial;
@@ -40,41 +33,23 @@ border-radius:6px;
 margin-bottom:15px;
 }
 
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<button onclick="setLang('en')">English</button>
+</style></head><body><div class="container"><button onclick="setLang('en')">English</button>
 <button onclick="setLang('hi')">Hindi</button>
 
-<h1 id="title"></h1>
-
-<img id="image">
-
-<div id="summary" class="summary"></div>
-
-<p id="content"></p>
-
-</div>
-
-<script>
+<h1 id="title"></h1><img id="image"><div id="summary" class="summary"></div><p id="content"></p></div><script>
 
 let lang="en"
 
 function setLang(l){
 lang=l
-load()
+loadArticle()
 }
 
-async function load(){
+async function loadArticle(){
 
 const id=new URLSearchParams(location.search).get("id")
 
-const res=await fetch("https://pulsegurgaon-backend.onrender.com/articles")
+const res=await fetch("../articles.json")
 
 const data=await res.json()
 
@@ -87,26 +62,6 @@ document.getElementById("image").src=article.image
 
 }
 
-load()
+loadArticle()
 
-</script>
-<script>
-
-const params = new URLSearchParams(window.location.search)
-const id = params.get("id")
-
-fetch("../articles.json")
-.then(res=>res.json())
-.then(data=>{
-
-const article = data.find(a=>a.id == id)
-
-document.getElementById("title").innerText = article.title_en
-document.getElementById("image").src = article.image
-document.getElementById("content").innerText = article.content_en
-
-})
-
-</script>
-</body>
-</html>
+</script></body></html>
