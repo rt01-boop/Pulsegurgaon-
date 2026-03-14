@@ -1,51 +1,33 @@
-let lang = "en"
-
-function toggleLang(){
-lang = lang === "en" ? "hi" : "en"
-loadNews()
-}
-
 async function loadNews(){
 
-const row = document.getElementById("newsrow")
-
-if(!row){
-console.log("newsrow container not found")
-return
-}
-
-row.innerHTML="Loading news..."
+const container=document.getElementById("newsrow")
 
 try{
 
-const res = await fetch("/.in/articles.json")
-const data = await res.json()
+const res=await fetch("/.in/articles.json")
+const data=await res.json()
 
-row.innerHTML=""
+container.innerHTML=""
 
 data.forEach(article=>{
 
-const title = lang==="en" ? article.title_en : article.title_hi
-const summary = lang==="en" ? article.summary_en : article.summary_hi
+const card=document.createElement("div")
+card.className="news-card"
 
-const card = document.createElement("div")
-card.className="card"
-
-card.innerHTML = `
+card.innerHTML=`
 <a href="frontend/article.html?id=${article.id}">
 <img src="${article.image}">
 
-<h3>${title}</h3>
-<p>${summary}</p>
+<h3>${article.title_en}</h3>
+<p>${article.summary_en}</p>
 </a>
-`row.appendChild(card)
+`container.appendChild(card)
 
 })
 
-}catch(err){
+}catch(e){
 
-row.innerHTML="Failed to load news."
-console.error(err)
+container.innerHTML="News failed to load."
 
 }
 
