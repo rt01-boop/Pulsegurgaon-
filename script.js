@@ -18,7 +18,7 @@ row.innerHTML="Loading news..."
 
 try{
 
-const res = await fetch("pulsegurgaon/articles.json")
+const res = await fetch("/.in/articles.json")
 const data = await res.json()
 
 row.innerHTML=""
