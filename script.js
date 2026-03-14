@@ -1,20 +1,20 @@
 async function loadNews(){
 
-const container=document.getElementById("newsrow")
+const container = document.getElementById("newsrow")
 
 try{
 
-const res=await fetch("/.in/articles.json")
-const data=await res.json()
+const res = await fetch("articles.json")
+const data = await res.json()
 
-container.innerHTML=""
+container.innerHTML = ""
 
-data.forEach(article=>{
+data.forEach(article => {
 
-const card=document.createElement("div")
-card.className="news-card"
+const card = document.createElement("div")
+card.className = "card"
 
-card.innerHTML=`
+card.innerHTML = `
 <a href="frontend/article.html?id=${article.id}">
 <img src="${article.image}">
 
@@ -25,9 +25,9 @@ card.innerHTML=`
 
 })
 
-}catch(e){
+}catch(error){
 
-container.innerHTML="News failed to load."
+container.innerHTML = "News failed to load"
 
 }
 
