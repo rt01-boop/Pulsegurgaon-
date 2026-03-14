@@ -24,11 +24,12 @@ const title = lang==="en" ? article.title_en : article.title_hi
 const summary = lang==="en" ? article.summary_en : article.summary_hi
 
 card.innerHTML = `
+<a href="frontend/article.html?id=${article.id}">
 <img src="${article.image}">
 <h3>${title}</h3>
 <p>${summary}</p>
+</a>
 `
-
 row.appendChild(card)
 
 })
