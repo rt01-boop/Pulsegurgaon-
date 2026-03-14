@@ -90,6 +90,23 @@ document.getElementById("image").src=article.image
 load()
 
 </script>
+<script>
 
+const params = new URLSearchParams(window.location.search)
+const id = params.get("id")
+
+fetch("../articles.json")
+.then(res=>res.json())
+.then(data=>{
+
+const article = data.find(a=>a.id == id)
+
+document.getElementById("title").innerText = article.title_en
+document.getElementById("image").src = article.image
+document.getElementById("content").innerText = article.content_en
+
+})
+
+</script>
 </body>
 </html>
